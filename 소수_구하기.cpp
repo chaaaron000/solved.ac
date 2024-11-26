@@ -15,22 +15,25 @@ using namespace std;
 void Solution()
 {
     int n, m;
-    cin >> n >> m;
-    bool pri = true;
-    for (int i = n; i <= m; i++)
+    cin >> m >> n;
+    vector<int> v;
+    for (int i = m; i <= n; i++)
     {
-        pri = true;
-        for (int j = 2; j <= i / 2; j++)
-        {
-            if (i % j == 0)
-            {
-                pri = false;
-                break;
-            } 
-        }
-
-        if (pri) cout << i << '\n';
+        if (i == 1) continue;
+        v.push_back(i);
     }
+
+    for (int i = 2; i <= sqrt(n); i++)
+    {
+        for (int j = 0; j < v.size(); j++)
+        {
+            if (v[j] == 0) continue;
+            else if (v[j] != i && v[j] % i == 0) v[j] = 0;
+        }
+    }
+
+    for (int i : v)
+        if (i != 0) cout << i << '\n';
 }
 
 int main(int argc, char const *argv[])
