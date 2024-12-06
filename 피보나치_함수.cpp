@@ -2,16 +2,24 @@
 
 using namespace std;
 
-// 아오 하기 싫어
 void Solution()
 {
+    vector<vector<int>> piv(41, vector<int>(2, 0));
+    piv[0] = {1, 0};
+    piv[1] = {0, 1};
+    for (int i = 2; i < 41; i++)
+    {
+        piv[i][0] = piv[i - 1][0] + piv[i - 2][0];
+        piv[i][1] = piv[i - 1][1] + piv[i - 2][1];
+    }
+
     int T;
     cin >> T;
     for (int t = 0; t < T; t++)
     {
         int n;
         cin >> n;
-        // 어차피 곧 집가야 함
+        cout << piv[n][0] << " " << piv[n][1] << '\n';
     }
 }
 
