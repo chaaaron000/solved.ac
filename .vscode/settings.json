@@ -51,6 +51,8 @@
         "string": "cpp",
         "algorithm": "cpp",
         "unordered_set": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "queue": "cpp",
+        "stack": "cpp"
     }
 }
